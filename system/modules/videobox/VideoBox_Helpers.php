@@ -162,17 +162,19 @@ class VideoBox_Helpers extends System
 		// check wheter there has already been created a settings entry
 		$objCheck = $this->Database->prepare("SELECT id FROM tl_videobox_settings WHERE pid=?")
 								   ->execute($dc->id);
+								   
+		$strRedirectPath = version_compare(VERSION.'.'.BUILD, '2.9.0', '<') ? 'typolight' : 'contao';
 		
 		// no entry yet - redirect to the create page
 		if($objCheck->numRows < 1)
 		{
-			$this->redirect('typolight/main.php?do=videobox&table=tl_videobox_settings&act=create&mode=2&pid=' . $dc->id);
+			$this->redirect($strRedirectPath.'/main.php?do=videobox&table=tl_videobox_settings&act=create&mode=2&pid=' . $dc->id);
 		}
 
 		// else redirect to the existing entry 
-		$this->redirect('typolight/main.php?do=videobox&table=tl_videobox_settings&act=edit&id=' . $objCheck->id);
+		$this->redirect($strRedirectPath.'/main.php?do=videobox&table=tl_videobox_settings&act=edit&id=' . $objCheck->id);
 		
-	}
+	}	
 }
 
 ?>
