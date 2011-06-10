@@ -112,12 +112,11 @@ class VideoBoxElement extends System
 			$strSQL = 'SELECT * FROM ' . $this->strTable . ' WHERE id=?';
 		}		
 		
-		$objData = $this->Database->prepare($strSQL)
-						->limit(1)
-						->execute($this->id)
-						->fetchAssoc();
 		// set data
-		$this->arrData = $objData;
+		$this->arrData = $this->Database->prepare($strSQL)
+							            ->limit(1)
+						                ->execute($this->id)
+						                ->fetchAssoc();
 		
 		// set videotype
 		if(strlen($this->strVideoType) == 0)
@@ -125,8 +124,8 @@ class VideoBoxElement extends System
 			$this->strVideoType = $this->arrData['videotype'];
 		}
 
-		// Hook: processVideoData
-		if (isset($GLOBALS['VIDEOBOX']['VideoType']) && is_array($GLOBALS['VIDEOBOX']['VideoType']))
+		// HOOK: processVideoData
+		if(isset($GLOBALS['VIDEOBOX']['VideoType']) && is_array($GLOBALS['VIDEOBOX']['VideoType']) && array_key_exists($this->strVideoType, $GLOBALS['VIDEOBOX']['VideoType']))
         {
 				$this->import($GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][0]);
 				$this->objVideo = $this->$GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][0]->$GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][1]($this->arrData);
