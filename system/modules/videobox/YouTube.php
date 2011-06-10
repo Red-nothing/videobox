@@ -86,7 +86,7 @@ class YouTube extends Frontend
 		
 		// Youtube url...what a long chain again...copy&paste to the fullest!
 		$this->strYoutubeUrl = 'http://www.youtube.com/v/' . $arrDBData['youtube_id'];	
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_rel'])) ? '&amp;rel=1' : '';
+		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_rel'])) ? '&amp;rel=1' : '&amp;rel=0';
 		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_autoplay']) && TL_MODE == 'FE') ? '&amp;autoplay=1' : '';
 		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_loop'])) ? '&amp;loop=1' : '';
 		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_border'])) ? '&amp;border=1' : '';
