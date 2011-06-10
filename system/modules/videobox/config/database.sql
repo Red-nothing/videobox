@@ -81,9 +81,6 @@ CREATE TABLE `tl_videobox` (
 -- 
 
 CREATE TABLE `tl_content` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `pid` int(10) unsigned NOT NULL default '0',
-  `sorting` int(10) unsigned NOT NULL default '0',
   `tstamp` int(10) unsigned NOT NULL default '0',
   `videobox_video` int(10) unsigned NOT NULL default '0',
   `videobox_description` text NULL,
@@ -100,9 +97,6 @@ CREATE TABLE `tl_content` (
 -- 
 
 CREATE TABLE `tl_news` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `pid` int(10) unsigned NOT NULL default '0',
-  `sorting` int(10) unsigned NOT NULL default '0',
   `tstamp` int(10) unsigned NOT NULL default '0',
   `videobox_addvideo` char(1) NOT NULL default '',
   `videobox_video` int(10) unsigned NOT NULL default '0',
@@ -118,9 +112,6 @@ CREATE TABLE `tl_news` (
 -- 
 
 CREATE TABLE `tl_calendar_events` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `pid` int(10) unsigned NOT NULL default '0',
-  `sorting` int(10) unsigned NOT NULL default '0',
   `tstamp` int(10) unsigned NOT NULL default '0',
   `videobox_addvideo` char(1) NOT NULL default '',
   `videobox_video` int(10) unsigned NOT NULL default '0',
