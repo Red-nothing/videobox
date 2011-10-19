@@ -38,5 +38,3 @@ $GLOBALS['TL_LANG']['tl_calendar_events']['videobox_video'] = array('Videos', 'B
  * Reference
  */
 $GLOBALS['TL_LANG']['tl_calendar_events']['videobox_legend'] = 'Videos';
-
-?>

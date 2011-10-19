@@ -49,5 +49,3 @@ $GLOBALS['TL_LANG']['tl_videobox_archive']['edit']   = array('VideoBox-Archiv be
 $GLOBALS['TL_LANG']['tl_videobox_archive']['copy']   = array('VideoBox-Archiv kopieren', 'Kopieren Sie das VideoBox-Archiv mit der Nummer %s');
 $GLOBALS['TL_LANG']['tl_videobox_archive']['delete'] = array('VideoBox-Archiv löschen', 'Löschen Sie das VideoBox-Archiv mit der Nummer %s');
 $GLOBALS['TL_LANG']['tl_videobox_archive']['show']   = array('Details des VideoBox-Archivs', 'Zeigen Sie die Details des VideoBox-Archiv mit der Nummer %s');
-
-?>

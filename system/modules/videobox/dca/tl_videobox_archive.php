@@ -297,5 +297,3 @@ class tl_videobox_archive extends Backend
 		return $arrTypes;
 	}
 }
-
-?>

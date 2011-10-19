@@ -183,6 +183,4 @@ class tl_videobox extends Backend
 		' . new VideoBoxElement((int) $arrRow['id']) . '
 		</div>' . "\n";
 	}
-} 
-
-?>
+}

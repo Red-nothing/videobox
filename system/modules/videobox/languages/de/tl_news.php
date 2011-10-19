@@ -38,5 +38,3 @@ $GLOBALS['TL_LANG']['tl_news']['videobox_video'] = array('Videos', 'Bitte wähle
  * Reference
  */
 $GLOBALS['TL_LANG']['tl_news']['videobox_legend'] = 'Videos';
-
-?>

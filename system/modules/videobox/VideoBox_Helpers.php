@@ -176,5 +176,3 @@ class VideoBox_Helpers extends System
 		
 	}	
 }
-
-?>

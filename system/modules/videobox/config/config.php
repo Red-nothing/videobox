@@ -58,5 +58,3 @@ $GLOBALS['VIDEOBOX']['VideoType'] = array();
 $GLOBALS['VIDEOBOX']['VideoType']['videotype_name'] = array('Class', 'Method');
  */
 $GLOBALS['VIDEOBOX']['VideoType']['youtube'] = array('YouTube', 'parseVideo');
- 
-?>

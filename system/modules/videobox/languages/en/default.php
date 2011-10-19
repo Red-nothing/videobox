@@ -36,5 +36,3 @@ $GLOBALS['TL_LANG']['VideoTypes']['youtube'] = 'Youtube';
  */
 $GLOBALS['TL_LANG']['VideoBox']['youtube_noscript'] = 'Unfortunately you are not able to watch the video entitled "%s" without Javascript.';
 $GLOBALS['TL_LANG']['VideoBox']['youtube_noflash'] = 'Unfortunately you are not able to watch the video entitled "%s" without Adobe Flash Player.';
-
-?>

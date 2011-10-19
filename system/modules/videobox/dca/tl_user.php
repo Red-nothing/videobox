@@ -54,5 +54,3 @@ $GLOBALS['TL_DCA']['tl_user']['fields']['videobox_operations'] = array
 	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
 	'eval'                    => array('multiple'=>true)
 );
-?>
-

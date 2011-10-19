@@ -60,4 +60,3 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['videobox_floating'] = array
 	'eval'                    => array('cols'=>4),
 	'reference'               => &$GLOBALS['TL_LANG']['MSC']
 );
-?>

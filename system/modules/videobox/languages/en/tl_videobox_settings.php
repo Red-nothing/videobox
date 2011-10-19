@@ -48,6 +48,3 @@ $GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_start'] = array('Where shou
 $GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_fs'] = array('Allow fullscreen','This enables the fullscreen button.');
 $GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_hd'] = array('Show video in HD','This has of course no effect if an HD version of the video is not available.');
 $GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_showinfo'] = array('Show video information','Display information like the video title and rating before the video starts playing.');
-
-
-?>

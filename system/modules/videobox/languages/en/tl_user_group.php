@@ -36,6 +36,3 @@ $GLOBALS['TL_LANG']['tl_user_group']['videobox_legend'] = 'VideoBox permissions'
  */
 $GLOBALS['TL_LANG']['tl_user_group']['videobox_archives']	= array('Allowed VideoBox archives', 'Set the access to the VideoBox archives here.');
 $GLOBALS['TL_LANG']['tl_user_group']['videobox_operations']	= array('VideoBox archive permissions', 'Set the archive permissions here.');
-
-?>
-

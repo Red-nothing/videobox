@@ -52,4 +52,3 @@ $GLOBALS['TL_DCA']['tl_calendar_events']['fields']['videobox_video'] = array
 	'options_callback'		  => array('VideoBox_Helpers', 'getVideos'),
 	'eval'					  => array('mandatory'=>true)
 );
-?>

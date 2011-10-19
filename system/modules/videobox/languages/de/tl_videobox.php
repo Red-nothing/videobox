@@ -49,6 +49,3 @@ $GLOBALS['TL_LANG']['tl_videobox']['copy']   = array('Video kopieren', 'Kopieren
 $GLOBALS['TL_LANG']['tl_videobox']['cut']   = array('Video verschieben', 'Verschieben Sie das Video mit der Nummer %s');
 $GLOBALS['TL_LANG']['tl_videobox']['delete'] = array('Video löschen', 'Löschen Sie das Video mit der Nummer %s');
 $GLOBALS['TL_LANG']['tl_videobox']['show']   = array('Details des Videos', 'Zeigen Sie die Details des Videos mit der Nummer %s');
-
-
-?>

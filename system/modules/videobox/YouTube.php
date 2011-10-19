@@ -85,18 +85,56 @@ class YouTube extends Frontend
 		$this->arrData['height'] = $arrSize[1];
 		
 		// Youtube url...what a long chain again...copy&paste to the fullest!
-		$this->strYoutubeUrl = 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'];	
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_rel'])) ? '&amp;rel=1' : '&amp;rel=0';
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_autoplay']) && TL_MODE == 'FE') ? '&amp;autoplay=1' : '';
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_loop'])) ? '&amp;loop=1' : '';
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_border'])) ? '&amp;border=1' : '';
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_color1'])) ? '&amp;color1=0x'.$arrDBData['youtube_color1'] : '';
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_color2'])) ? '&amp;color2=0x'.$arrDBData['youtube_color2'] : '';
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_start'])) ? '&amp;start='.$arrDBData['youtube_start'] : '';
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_fs'])) ? '&amp;fs=1' : '';
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_hd'])) ? '&amp;hd=1' : '';
-		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_showinfo'])) ? '&amp;showinfo=1' : '';
+		$arrUrlData = array();
 		
+		// rel
+		if ($arrDBData['youtube_rel'])
+		{
+			$arrUrlData['rel'] = 1;
+		}
+		else
+		{
+			$arrUrlData['rel'] = 0;
+		}
+
+		// autoplay
+		if ($arrDBData['youtube_autoplay'] && TL_MODE == 'FE')
+			$arrUrlData['autoplay'] = 1;
+
+		// loop
+		if ($arrDBData['youtube_loop'])
+			$arrUrlData['loop'] = 1;
+
+		// border
+		if ($arrDBData['youtube_border'])
+			$arrUrlData['border'] = 1;
+
+		// color1
+		if ($arrDBData['youtube_color1'])
+			$arrUrlData['color1'] = '0x' . $arrDBData['youtube_color1'];
+		
+		// color2
+		if ($arrDBData['youtube_color2'])
+			$arrUrlData['color2'] = '0x' . $arrDBData['youtube_color2'];		
+
+		// start
+		if ($arrDBData['youtube_start'])
+			$arrUrlData['start'] = '0x' . $arrDBData['youtube_start'];
+		
+		// fullscreen
+		if ($arrDBData['youtube_fs'])
+			$arrUrlData['fs'] = 1;
+
+		// hd
+		if ($arrDBData['youtube_hd'])
+			$arrUrlData['hd'] = 1;
+
+		// showinfo
+		if ($arrDBData['youtube_showinfo'])
+			$arrUrlData['showinfo'] = 1;		
+		
+		
+		$this->strYoutubeUrl = 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'] . $this->generateQueryString($arrUrlData);
 		$this->arrData['youtubelink'] = $this->strYoutubeUrl;
 
 		// usability
@@ -108,6 +146,32 @@ class YouTube extends Frontend
 		$objTemplate->setData($this->arrData);
 		return $objTemplate->parse();
 	}
-}
 
-?>
+
+	/**
+	 * Generate youtube query string
+	 * @param array
+	 * @return string
+	 */
+	private function generateQueryString($arrData)
+	{
+		$total = count($arrData);
+		
+		if ($total < 1)
+		{
+			return '';
+		}
+		
+		$strQuery = '';
+		$i = 0;
+		
+		foreach($arrData as $param => $value)
+		{
+			$strQuery .= (($i == 0) ? '?' : '&') . $param . '=' . $value;
+			$i++;
+		}
+		
+		// encode entities because the url is being used in html
+		return specialchars($strQuery);
+	}
+}

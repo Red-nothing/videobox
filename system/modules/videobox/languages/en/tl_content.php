@@ -45,5 +45,3 @@ $GLOBALS['TL_LANG']['tl_content']['videobox_legend'] = 'VideoBox video';
  */
 $GLOBALS['TL_LANG']['CTE']['videos']     = 'Video elements';
 $GLOBALS['TL_LANG']['CTE']['videobox'] = array('VideoBox video','Add a VideoBox video');
-
-?>

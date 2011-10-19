@@ -54,5 +54,3 @@ class ContentVideoBox extends ContentElement
 		$this->Template->float = in_array($this->videobox_floating, array('left', 'right')) ? sprintf(' float:%s;', $this->videobox_floating) : '';		
 	}
 }
-
-?>

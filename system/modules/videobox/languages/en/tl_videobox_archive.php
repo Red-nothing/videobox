@@ -49,5 +49,3 @@ $GLOBALS['TL_LANG']['tl_videobox_archive']['edit']   = array('Edit VideoBox arch
 $GLOBALS['TL_LANG']['tl_videobox_archive']['copy']   = array('Copy VideoBox archive', 'Copy the VideoBox archive with id %s');
 $GLOBALS['TL_LANG']['tl_videobox_archive']['delete'] = array('Delete VideoBox archive', 'Delete the VideoBox archive with id %s');
 $GLOBALS['TL_LANG']['tl_videobox_archive']['show']   = array('Show details', 'Show the details of the VideoBox archive with id %s');
-
-?>

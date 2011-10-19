@@ -36,5 +36,3 @@ $GLOBALS['TL_LANG']['tl_user']['videobox_legend'] = 'VideoBox-Rechte';
  */
 $GLOBALS['TL_LANG']['tl_user']['videobox_archives']	= array('Erlaubte VideoBox-Archive', 'Hier können Sie den Zugriff auf ein oder mehrere VideoBox-Archive erlauben.');
 $GLOBALS['TL_LANG']['tl_user']['videobox_operations']	= array('VideoBox-Archivrechte', 'Hier können Sie die VideoBox-Archivrechte festlegen.');
-?>
-

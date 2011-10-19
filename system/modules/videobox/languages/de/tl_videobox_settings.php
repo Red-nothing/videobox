@@ -48,5 +48,3 @@ $GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_start'] = array('Startsekun
 $GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_fs'] = array('Vollbild erlauben?','Soll eine Vollbildansicht erlaubt sein?');
 $GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_hd'] = array('Video in HD anzeigen?','Diese Option funktioniert natürlich nur, wenn das Video auch in HD vorhanden ist.');
 $GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_showinfo'] = array('Informationen zum Video anzeigen?','Infos wie Video-Titel und Rating anzeigen oder nicht?');
-
-?>

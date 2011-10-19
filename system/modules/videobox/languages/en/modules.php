@@ -31,6 +31,3 @@
  * Back end modules
  */
 $GLOBALS['TL_LANG']['MOD']['videobox'] = array('VideoBox', 'This module allows you to turn your TYPOlight into a video management system.');
-
-
-?>

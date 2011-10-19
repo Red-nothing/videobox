@@ -247,5 +247,3 @@ class tl_videobox_settings extends Backend
 		}
 	}
 }
-
-?>
