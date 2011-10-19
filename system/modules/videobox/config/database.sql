@@ -30,7 +30,7 @@ CREATE TABLE `tl_videobox_archive` (
 -- --------------------------------------------------------
 
 -- 
--- Table `tl_videobox_archive`
+-- Table `tl_videobox_settings`
 -- 
 
 CREATE TABLE `tl_videobox_settings` (
@@ -52,6 +52,30 @@ CREATE TABLE `tl_videobox_settings` (
   `youtube_showinfo` char(1) NOT NULL default '',
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`)
+) ENGINE=MyISAM  CHARSET=utf8;
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table `tl_user`
+-- 
+
+CREATE TABLE `tl_user` (
+ `videobox_archives` blob NULL,
+ `videobox_operations` blob NULL
+) ENGINE=MyISAM  CHARSET=utf8;
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table `tl_user_group`
+-- 
+
+CREATE TABLE `tl_user_group` (
+ `videobox_archives` blob NULL,
+ `videobox_operations` blob NULL
 ) ENGINE=MyISAM  CHARSET=utf8;
 
 

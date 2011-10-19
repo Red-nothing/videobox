@@ -1,4 +1,4 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
 
 /**
  * TYPOlight webCMS
@@ -19,7 +19,7 @@
  * Software Foundation website at http://www.gnu.org/licenses/.
  *
  * PHP version 5
- * @copyright  Yanick Witschi 2010 
+ * @copyright  certo web & design GmbH 2010 - 2011 
  * @author     Yanick Witschi <yanick.witschi@certo-net.ch> 
  * @package    videobox 
  * @license    LGPL 

@@ -1,4 +1,4 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
 
 /**
  * TYPOlight webCMS
@@ -19,7 +19,7 @@
  * Software Foundation website at http://www.gnu.org/licenses/.
  *
  * PHP version 5
- * @copyright  Yanick Witschi 2010 
+ * @copyright  certo web & design GmbH 2010 - 2011 
  * @author     Yanick Witschi <yanick.witschi@certo-net.ch> 
  * @package    videobox 
  * @license    LGPL 
@@ -30,7 +30,7 @@
 /**
  * Class YouTube 
  *
- * @copyright  Yanick Witschi 2010 
+ * @copyright  certo web & design GmbH 2010 - 2011 
  * @author     Yanick Witschi <yanick.witschi@certo-net.ch> 
  * @package    Controller
  */
@@ -85,7 +85,7 @@ class YouTube extends Frontend
 		$this->arrData['height'] = $arrSize[1];
 		
 		// Youtube url...what a long chain again...copy&paste to the fullest!
-		$this->strYoutubeUrl = 'http://www.youtube.com/v/' . $arrDBData['youtube_id'];	
+		$this->strYoutubeUrl = 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'];	
 		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_rel'])) ? '&amp;rel=1' : '&amp;rel=0';
 		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_autoplay']) && TL_MODE == 'FE') ? '&amp;autoplay=1' : '';
 		$this->strYoutubeUrl .= (strlen($arrDBData['youtube_loop'])) ? '&amp;loop=1' : '';
