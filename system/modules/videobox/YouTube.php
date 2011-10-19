@@ -61,8 +61,6 @@ class YouTube extends Frontend
 	 */
 	public function parseVideo($arrDBData)
 	{
-		$this->import('String');
-		
 		// set template
 		$this->strTemplate = (strlen($arrDBData['youtube_template'])) ? $arrDBData['youtube_template'] : 'videobox_youtube';
 		
@@ -134,12 +132,12 @@ class YouTube extends Frontend
 			$arrUrlData['showinfo'] = 1;		
 		
 		
-		$this->strYoutubeUrl = 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'] . $this->generateQueryString($arrUrlData);
-		$this->arrData['youtubelink'] = $this->strYoutubeUrl;
+		$this->arrData['urlParams']	= $arrUrlData;
+		$this->arrData['youtubelink'] = 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'] . $this->generateQueryString($arrUrlData);
 
 		// usability
-		$this->arrData['noscript'] = $this->String->decodeEntities(sprintf($GLOBALS['TL_LANG']['VideoBox']['youtube_noscript'], $arrDBData['videotitle']));
-		$this->arrData['noflash'] = $this->String->decodeEntities(sprintf($GLOBALS['TL_LANG']['VideoBox']['youtube_noflash'], $arrDBData['videotitle']));
+		$this->arrData['noscript'] = specialchars(sprintf($GLOBALS['TL_LANG']['VideoBox']['youtube_noscript'], $arrDBData['videotitle']));
+		$this->arrData['noflash'] = specialchars(sprintf($GLOBALS['TL_LANG']['VideoBox']['youtube_noflash'], $arrDBData['videotitle']));
 
 		// Template
 		$objTemplate = new FrontendTemplate($this->strTemplate);
