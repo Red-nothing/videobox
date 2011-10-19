@@ -133,7 +133,7 @@ class YouTube extends Frontend
 		
 		
 		$this->arrData['urlParams']	= $arrUrlData;
-		$this->arrData['youtubelink'] = 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'] . $this->generateQueryString($arrUrlData);
+		$this->arrData['youtubelink'] = 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'] . self::generateQueryString($arrUrlData);
 
 		// usability
 		$this->arrData['noscript'] = specialchars(sprintf($GLOBALS['TL_LANG']['VideoBox']['youtube_noscript'], $arrDBData['videotitle']));
@@ -151,7 +151,7 @@ class YouTube extends Frontend
 	 * @param array
 	 * @return string
 	 */
-	private function generateQueryString($arrData)
+	public static function generateQueryString($arrData)
 	{
 		$total = count($arrData);
 		
