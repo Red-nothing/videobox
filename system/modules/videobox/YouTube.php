@@ -64,6 +64,9 @@ class YouTube extends Frontend
 		// set template
 		$this->strTemplate = (strlen($arrDBData['youtube_template'])) ? $arrDBData['youtube_template'] : 'videobox_youtube';
 		
+		// pass on the database row unchanged
+		$this->arrData['dbRow'] = $arrDBData;
+		
 		$this->arrData['id'] = 'video_' . $arrDBData['videoid'] . '_' . md5(uniqid(mt_rand(), true));
 		$this->arrData['timestamp'] = $arrDBData['tstamp'];
 		$this->arrData['video_title'] = $arrDBData['videotitle'];
@@ -84,7 +87,7 @@ class YouTube extends Frontend
 		
 		// Youtube url...what a long chain again...copy&paste to the fullest!
 		$arrUrlData = array();
-		
+
 		// rel
 		if ($arrDBData['youtube_rel'])
 		{
@@ -113,7 +116,7 @@ class YouTube extends Frontend
 		
 		// color2
 		if ($arrDBData['youtube_color2'])
-			$arrUrlData['color2'] = '0x' . $arrDBData['youtube_color2'];		
+			$arrUrlData['color2'] = '0x' . $arrDBData['youtube_color2'];
 
 		// start
 		if ($arrDBData['youtube_start'])
@@ -129,11 +132,11 @@ class YouTube extends Frontend
 
 		// showinfo
 		if ($arrDBData['youtube_showinfo'])
-			$arrUrlData['showinfo'] = 1;		
+			$arrUrlData['showinfo'] = 1;	
 		
 		
-		$this->arrData['urlParams']	= $arrUrlData;
-		$this->arrData['youtubelink'] = 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'] . self::generateQueryString($arrUrlData);
+		$this->arrData['urlParams']		= $arrUrlData;
+		$this->arrData['youtubelink']	= 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'] . self::generateQueryString($arrUrlData);
 
 		// usability
 		$this->arrData['noscript'] = specialchars(sprintf($GLOBALS['TL_LANG']['VideoBox']['youtube_noscript'], $arrDBData['videotitle']));
