@@ -117,25 +117,34 @@ class VideoBoxElement extends System
 		{
 			$this->strVideoType = $this->arrData['videotype'];
 		}
+    }
 
-		// HOOK: processVideoData
-		if(isset($GLOBALS['VIDEOBOX']['VideoType']) && is_array($GLOBALS['VIDEOBOX']['VideoType']) && array_key_exists($this->strVideoType, $GLOBALS['VIDEOBOX']['VideoType']))
-        {
-				$this->import($GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][0]);
-				$this->objVideo = $this->$GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][0]->$GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][1]($this->arrData);
-				return $this->objVideo;
-		}
-        
-        // other than that, there's no videobox hook for this type!
-        throw new Exception('There is no valid video type hook for the video type "' . $this->strVideoType . '"!');
+
+    /**
+     * Get the data
+     * @return array
+     */
+    public function getData()
+    {
+        return $this->arrData;
     }
 	
+    
 	/**
      * Return the video object as a string
      * @return string 
      */
- 	public function __toString()
+ 	public function generate()
 	{
+        // HOOK: processVideoData
+        if(isset($GLOBALS['VIDEOBOX']['VideoType']) && is_array($GLOBALS['VIDEOBOX']['VideoType']) && array_key_exists($this->strVideoType, $GLOBALS['VIDEOBOX']['VideoType']))
+        {
+                $this->import($GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][0]);
+                return $this->$GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][0]->$GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][1]($this->arrData);
+        }
+        
+        // other than that, there's no videobox hook for this type!
+        throw new Exception('There is no valid video type hook for the video type "' . $this->strVideoType . '"!');
 		return $this->objVideo;
 	}
 }
