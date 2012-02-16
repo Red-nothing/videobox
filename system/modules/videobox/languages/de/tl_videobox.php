@@ -30,6 +30,7 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_videobox']['videotitle'] = array('Videotitel', 'Geben Sie dem Video einen Titel.');
+$GLOBALS['TL_LANG']['tl_videobox']['alias'] = array('Alias', 'Geben Sie dem Video ein Alias oder lassen Sie es sich aus dem Titel generieren.');
 $GLOBALS['TL_LANG']['tl_videobox']['videotype'] = array('Videotyp', 'Wählen Sie aus, von welchem Typ Ihr Video ist.');
 $GLOBALS['TL_LANG']['tl_videobox']['youtube_id'] = array('Youtube-ID', 'Geben Sie die Video-ID des Youtube-Videos an. Die ID ist der <strong>fett gedruckte</strong> Teil: http://www.youtube.com/watch?v=<strong>SGeZYednWtI</strong>');
 

@@ -28,13 +28,8 @@
 
 
 /**
- * Back end modules
+ * Fields
  */
-$GLOBALS['TL_LANG']['MOD']['videobox'] = array('VideoBox', 'This module allows you to turn your Contao into a video management system.');
-
-/**
- * Front end modules
- */
-$GLOBALS['TL_LANG']['FMD']['videobox']           = 'VideoBox';
-$GLOBALS['TL_LANG']['FMD']['videobox_list']      = array('VideoBox List', 'Outputs a list of videos of VideoBox.');
-$GLOBALS['TL_LANG']['FMD']['videobox_reader']    = array('VideoBox Reader', 'The reader module for the videos of VideoBox.');
+$GLOBALS['TL_LANG']['tl_module']['videobox_archives'] = array('Videobox archives', 'Please choose from one or more archives.');
+$GLOBALS['TL_LANG']['tl_module']['videobox_jumpTo'] = array('Videobox reader page', 'Please check the page on which you placed the videobox reader module.');
+$GLOBALS['TL_LANG']['tl_module']['videobox_sql'] = array('Videobox SQL', 'Here you can add your individual SQL commands. Make sure the query gets built correctly (e.g. " AND published=1 ORDER BY tstamp"');
