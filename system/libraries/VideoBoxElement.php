@@ -37,12 +37,6 @@
 class VideoBoxElement extends System
 {
     /**
-     * Current Video ID
-     * @var integer 
-     */
-	public $id = null;
-	 
-	 /**
      * Data table
      * @var string 
      */
@@ -68,20 +62,13 @@ class VideoBoxElement extends System
 	
     /**
      * Initialize the object
-     * @param integer 
+     * @param mixed either the video ID or its alias 
      * @param string 
      * @param string 
      */
-    public function __construct($id, $strTable='tl_videobox', $strVideoType='')
-    {
-		if(!is_int($id) || $id == 0)
-		{
-			$this->objVideo = '<span style="color:red;">Given Video-ID is either not an integer or 0!</span>';
-			return $this->objVideo;
-		}
-		
+    public function __construct($varId, $strTable='tl_videobox', $strVideoType='')
+    {	
 		// set vars
-		$this->id = (int) $id;
 		$this->strTable = $strTable;
 		$this->strVideoType = $strVideoType;
 		
@@ -105,21 +92,28 @@ class VideoBoxElement extends System
 						ON
 							a.id = s.pid
 						WHERE
-							v.id=?';
+							v.id=? OR v.alias=?';
 		}
 		else
 		{
-			$strSQL = 'SELECT * FROM ' . $this->strTable . ' WHERE id=?';
+			$strSQL = 'SELECT * FROM ' . $this->strTable . ' WHERE id=? OR alias=?';
 		}		
 		
+        // get data
+        $objData = $this->Database->prepare($strSQL)
+                                        ->limit(1)
+                                        ->execute($varId, $varId);
+                                        
+        if (!$objData->numRows)
+        {
+            throw new Exception('The video with id or alias "' . $varId . '" does not exist!');
+        }
+        
 		// set data
-		$this->arrData = $this->Database->prepare($strSQL)
-							            ->limit(1)
-						                ->execute($this->id)
-						                ->fetchAssoc();
+		$this->arrData = $objData->fetchAssoc();
 		
 		// set videotype
-		if(strlen($this->strVideoType) == 0)
+		if(!$this->strVideoType)
 		{
 			$this->strVideoType = $this->arrData['videotype'];
 		}
@@ -131,9 +125,9 @@ class VideoBoxElement extends System
 				$this->objVideo = $this->$GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][0]->$GLOBALS['VIDEOBOX']['VideoType'][$this->strVideoType][1]($this->arrData);
 				return $this->objVideo;
 		}
-		
-		$this->objVideo = '<span style="color:red;">Missing VideoBox Hook. Video data cannot be processed!</span>';
-		return $this->objVideo;
+        
+        // other than that, there's no videobox hook for this type!
+        throw new Exception('There is no valid video type hook for the video type "' . $this->strVideoType . '"!');
     }
 	
 	/**
