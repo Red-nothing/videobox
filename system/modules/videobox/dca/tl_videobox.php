@@ -121,7 +121,7 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['alias'],
 			'exclude'                 => true,
 			'inputType'               => 'text',
-            'eval'                    => array('tl_class'=>'w50'),
+            'eval'                    => array('tl_class'=>'w50', 'doNotCopy'=>true),
 			'save_callback'           => array
 			(
                 array('tl_videobox', 'generateAlias')
