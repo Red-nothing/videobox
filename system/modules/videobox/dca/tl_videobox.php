@@ -102,8 +102,8 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 	'palettes' => array
 	(
 		'__selector__'                => array('videotype'),
-		'default'                     => '{title_legend},videotitle,videotype;',
-		'youtube'					  => '{title_legend},videotitle,videotype;{youtube_legend},youtube_id;'
+		'default'                     => '{title_legend},videotitle,alias,videotype;',
+		'youtube'					  => '{title_legend},videotitle,alias,videotype;{youtube_legend},youtube_id;'
 	),
 	
 	// Fields
@@ -114,14 +114,14 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['videotitle'],
 			'exclude'                 => true,
 			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>true)
+			'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50')
 		),
 		'alias' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['alias'],
 			'exclude'                 => true,
 			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>true),
+            'eval'                    => array('tl_class'=>'w50'),
 			'save_callback'           => array
 			(
                 array('tl_videobox', 'generateAlias')
@@ -135,7 +135,7 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 			'inputType'               => 'select',
 			'default'				  => '-',				
 			'options_callback'		  => array('tl_videobox', 'getVideoTypes'),
-			'eval'                    => array('mandatory'=>true, 'submitOnChange'=>true,'includeBlankOption'=>true)
+			'eval'                    => array('mandatory'=>true, 'submitOnChange'=>true,'includeBlankOption'=>true, 'tl_class'=>'clr')
 		),
 		'youtube_id' => array
 		(
@@ -210,8 +210,14 @@ class tl_videobox extends Backend
             $varValue = standardize($this->restoreBasicEntities($dc->activeRecord->videotitle));
         }
 
-        $objAlias = $this->Database->prepare("SELECT id FROM tl_videobox WHERE id=? OR alias=?")
-                                   ->execute($dc->id, $varValue);
+        $objAlias = $this->Database->prepare("SELECT id FROM tl_videobox WHERE alias=?")
+                                   ->execute($varValue);
+                                   
+        // if the ID matches the current one editing, everything is perfect
+        if ($objAlias->id == $dc->id)
+        {
+            return $varValue;
+        }
 
         // Check whether the page alias exists
         if ($objAlias->numRows)
