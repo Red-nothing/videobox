@@ -91,6 +91,7 @@ CREATE TABLE `tl_videobox` (
   `sorting` int(10) unsigned NOT NULL default '0',
   `tstamp` int(10) unsigned NOT NULL default '0',
   `videotitle` varchar(64) NOT NULL default '',
+  `alias` varchar(64) NOT NULL default '',
   `videotype` varchar(64) NOT NULL default '',
   `youtube_id` varchar(64) NOT NULL default '',
   PRIMARY KEY  (`id`),
@@ -143,5 +144,6 @@ CREATE TABLE `tl_calendar_events` (
 
 CREATE TABLE `tl_module` (
   `videobox_archives` blob NULL,
+  `videobox_jumpTo` int(10) unsigned NOT NULL default '0',
   `videobox_sql` varchar(255) NOT NULL default ''
 ) ENGINE=MyISAM  CHARSET=utf8;

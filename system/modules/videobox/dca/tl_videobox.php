@@ -116,6 +116,17 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 			'inputType'               => 'text',
 			'eval'                    => array('mandatory'=>true)
 		),
+		'alias' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['alias'],
+			'exclude'                 => true,
+			'inputType'               => 'text',
+			'eval'                    => array('mandatory'=>true),
+			'save_callback'           => array
+			(
+                array('tl_videobox', 'generateAlias')
+            )
+		),
 		'videotype' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['videotype'],
@@ -183,4 +194,31 @@ class tl_videobox extends Backend
 		' . new VideoBoxElement((int) $arrRow['id']) . '
 		</div>' . "\n";
 	}
+    
+    
+    /**
+     * Auto-generate a video alias if it has not been set yet
+     * @param mixed
+     * @param DataContainer
+     * @return string
+     */
+    public function generateAlias($varValue, DataContainer $dc)
+    {
+        // Generate an alias if there is none
+        if ($varValue == '')
+        {
+            $varValue = standardize($this->restoreBasicEntities($dc->activeRecord->videotitle));
+        }
+
+        $objAlias = $this->Database->prepare("SELECT id FROM tl_videobox WHERE id=? OR alias=?")
+                                   ->execute($dc->id, $varValue);
+
+        // Check whether the page alias exists
+        if ($objAlias->numRows)
+        {
+            throw new Exception(sprintf($GLOBALS['TL_LANG']['ERR']['aliasExists'], $varValue));
+        }
+
+        return $varValue;
+    }
 }
