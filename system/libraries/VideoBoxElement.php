@@ -145,5 +145,3 @@ class VideoBoxElement extends System
 		return $this->objVideo;
 	}
 }
-
-?>
