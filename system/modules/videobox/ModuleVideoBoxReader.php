@@ -78,7 +78,9 @@ class ModuleVideoBoxReader extends Module
 	 */
 	protected function compile()
 	{
-	    $this->Template->video = new VideoBoxElement($this->Input->get('video'));
+	    $objVideo = new VideoBoxElement($this->Input->get('video'));
+	    $this->Template->video = $objVideo->generate();
+        $this->Template->videoData = $objVideo->getData();
     }
 }
 	

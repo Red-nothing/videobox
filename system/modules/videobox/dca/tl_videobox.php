@@ -142,7 +142,7 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['youtube_id'],
 			'exclude'                 => true,
 			'inputType'               => 'text'
-		)
+		),
 	)
 );
 
@@ -188,10 +188,11 @@ class tl_videobox extends Backend
 	 */
 	public function compileVideos($arrRow)
 	{
+	    $objVideo = new VideoBoxElement((int) $arrRow['id']);
 		return '
 		<div class="cte_type"><strong>' . $arrRow['videotitle'] . '</strong></div>
 		<div class="limit_height' . (!$GLOBALS['TL_CONFIG']['doNotCollapse'] ? ' h64' : '') . ' block">
-		' . new VideoBoxElement((int) $arrRow['id']) . '
+		' . $objVideo->generate() . '
 		</div>' . "\n";
 	}
     

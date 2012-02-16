@@ -131,7 +131,9 @@ class ModuleVideoBoxList extends Module
         
         while ($objVideos->next())
         {
-            $arrVideos[$objVideos->id]['video'] = new VideoBoxElement($objVideos->id);
+            $objVideo = new VideoBoxElement($objVideos->id);
+            $arrVideos[$objVideos->id]['video'] = $objVideo->generate();
+            $arrVideos[$objVideos->id]['videoData'] = $objVideo->getData();
             $arrVideos[$objVideos->id]['count'] = ++$count;
             $arrVideos[$objVideos->id]['cssClass'] = (($count == 1) ? ' first' : '') . (($count == $limit) ? ' last' : '') . ((($count % 2) == 0) ? ' odd' : ' even');
             $arrVideos[$objVideos->id]['title'] = $objVideos->title;

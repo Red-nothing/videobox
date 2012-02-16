@@ -72,7 +72,8 @@ class VideoBox_Helpers extends System
 				return '';
 			}
 			
-			return new VideoBoxElement((int) $objNews->videobox_video);
+            $objVideo = new VideoBoxElement((int) $objNews->videobox_video);
+			return $objVideo->generate();
 		}
 		
 		// {{VIDEOBOX_EVENTS::CONTAINERID}} 
@@ -89,7 +90,8 @@ class VideoBox_Helpers extends System
 				return '';
 			}
 
-			return new VideoBoxElement((int) $objNews->videobox_video);
+            $objVideo = new VideoBoxElement((int) $objNews->videobox_video);
+            return $objVideo->generate();
 		}
 		
 		// {{VIDEOBOX_STANDALONE::VIDEOID}}
@@ -97,9 +99,10 @@ class VideoBox_Helpers extends System
 		{
 			$arrData = explode('::', $strTag);
 			
-			return new VideoBoxElement((int) $arrData[1]);			
+            $objVideo = new VideoBoxElement((int) $arrData[1]);
+            return $objVideo->generate();		
 		}
-		
+        
 		return false;
 	}
 	
@@ -162,17 +165,15 @@ class VideoBox_Helpers extends System
 		// check wheter there has already been created a settings entry
 		$objCheck = $this->Database->prepare("SELECT id FROM tl_videobox_settings WHERE pid=?")
 								   ->execute($dc->id);
-								   
-		$strRedirectPath = version_compare(VERSION.'.'.BUILD, '2.9.0', '<') ? 'typolight' : 'contao';
 		
 		// no entry yet - redirect to the create page
 		if($objCheck->numRows < 1)
 		{
-			$this->redirect($strRedirectPath.'/main.php?do=videobox&table=tl_videobox_settings&act=create&mode=2&pid=' . $dc->id);
+			$this->redirect('contao/main.php?do=videobox&table=tl_videobox_settings&act=create&mode=2&pid=' . $dc->id);
 		}
 
 		// else redirect to the existing entry 
-		$this->redirect($strRedirectPath.'/main.php?do=videobox&table=tl_videobox_settings&act=edit&id=' . $objCheck->id);
+		$this->redirect('contao/main.php?do=videobox&table=tl_videobox_settings&act=edit&id=' . $objCheck->id);
 		
 	}	
 }

@@ -48,7 +48,8 @@ class ContentVideoBox extends ContentElement
 	 */
 	protected function compile()
 	{
-		$this->Template->element = new VideoBoxElement((int) $this->videobox_video);
+	    $objVideo = new VideoBoxElement((int) $this->videobox_video);
+		$this->Template->element = $objVideo->generate();
 
 		$this->Template->description = $this->videobox_description;
 		$this->Template->float = in_array($this->videobox_floating, array('left', 'right')) ? sprintf(' float:%s;', $this->videobox_floating) : '';		
