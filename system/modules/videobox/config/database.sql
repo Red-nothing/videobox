@@ -105,12 +105,9 @@ CREATE TABLE `tl_videobox` (
 -- 
 
 CREATE TABLE `tl_content` (
-  `tstamp` int(10) unsigned NOT NULL default '0',
   `videobox_video` int(10) unsigned NOT NULL default '0',
   `videobox_description` text NULL,
   `videobox_floating` varchar(32) NOT NULL default '',
-  PRIMARY KEY  (`id`),
-  KEY `pid` (`pid`)
 ) ENGINE=MyISAM  CHARSET=utf8;
 
 
@@ -121,11 +118,8 @@ CREATE TABLE `tl_content` (
 -- 
 
 CREATE TABLE `tl_news` (
-  `tstamp` int(10) unsigned NOT NULL default '0',
   `videobox_addvideo` char(1) NOT NULL default '',
   `videobox_video` int(10) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`),
-  KEY `pid` (`pid`)
 ) ENGINE=MyISAM  CHARSET=utf8;
 
 
@@ -136,9 +130,18 @@ CREATE TABLE `tl_news` (
 -- 
 
 CREATE TABLE `tl_calendar_events` (
-  `tstamp` int(10) unsigned NOT NULL default '0',
   `videobox_addvideo` char(1) NOT NULL default '',
   `videobox_video` int(10) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`),
-  KEY `pid` (`pid`)
+) ENGINE=MyISAM  CHARSET=utf8;
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table `tl_module`
+-- 
+
+CREATE TABLE `tl_module` (
+  `videobox_archives` blob NULL,
+  `videobox_sql` varchar(255) NOT NULL default ''
 ) ENGINE=MyISAM  CHARSET=utf8;
