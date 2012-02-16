@@ -103,7 +103,7 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 	(
 		'__selector__'                => array('videotype'),
 		'default'                     => '{title_legend},videotitle,alias,videotype;',
-		'youtube'					  => '{title_legend},videotitle,alias,videotype;{youtube_legend},youtube_id;'
+		'youtube'					  => '{title_legend},videotitle,alias,videotype;{youtube_legend},thumb,descr,youtube_id;'
 	),
 	
 	// Fields
@@ -137,12 +137,26 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 			'options_callback'		  => array('tl_videobox', 'getVideoTypes'),
 			'eval'                    => array('mandatory'=>true, 'submitOnChange'=>true,'includeBlankOption'=>true, 'tl_class'=>'clr')
 		),
+        'thumb' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['thumb'],
+            'exclude'                 => true,
+            'inputType'               => 'fileTree',
+            'eval'                    => array('fieldType'=>'radio', 'filesOnly'=>true, 'files'=>true, 'extensions'=>'jpg,jpeg,png,gif')
+        ),
+        'descr' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['descr'],
+            'exclude'                 => true,
+            'inputType'               => 'textarea',
+            'eval'                    => array('rte'=>'tinyMCE')
+        ),
 		'youtube_id' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['youtube_id'],
 			'exclude'                 => true,
 			'inputType'               => 'text'
-		),
+		)
 	)
 );
 
