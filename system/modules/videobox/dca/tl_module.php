@@ -40,6 +40,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['videobox_archives'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['videobox_archives'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
+	'foreignKey'              => 'tl_videobox_archive.title',
 	'eval'                    => array('mandatory'=>true, 'multiple'=>true)
 );
 $GLOBALS['TL_DCA']['tl_module']['fields']['videobox_jumpTo'] = array
@@ -47,7 +48,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['videobox_jumpTo'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['videobox_jumpTo'],
 	'exclude'                 => true,
 	'inputType'               => 'pageTree',
-	'eval'                    => array('mandatory'=>true)
+	'eval'                    => array('mandatory'=>true, 'fieldType'=>'radio')
 );
 $GLOBALS['TL_DCA']['tl_module']['fields']['videobox_sql'] = array
 (
