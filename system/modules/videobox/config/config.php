@@ -34,6 +34,13 @@ $GLOBALS['BE_MOD']['content']['videobox'] = array
 	'videobox_settings'	   => array('VideoBox_Helpers', 'linkToSettings')
 );
 
+// FE MOD
+$GLOBALS['FE_MOD']['videobox'] = array
+(
+    'videobox_list'     => 'ModuleVideoBoxList',
+    'videobox_reader'   => 'ModuleVideoBoxReader'
+);
+
 // CE
 array_insert($GLOBALS['TL_CTE'], 2, array
 (
