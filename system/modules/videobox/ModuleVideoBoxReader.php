@@ -84,8 +84,9 @@ class ModuleVideoBoxReader extends Module
 	 */
 	protected function compile()
 	{
+	    $this->import('VideoBox_Helpers', 'VBHelper');
 	    $objVideo = new VideoBoxElement($this->Input->get('video'));
-        $this->Template->videoData = $arrVideoData = VideoBox_Helpers::prepareVideoTemplateData($objVideo->id);
+        $this->Template->videoData = $arrVideoData = $this->VBHelper->prepareVideoTemplateData($objVideo->id);
     }
 }
 	

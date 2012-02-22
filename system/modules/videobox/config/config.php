@@ -55,7 +55,7 @@ $GLOBALS['TL_PERMISSIONS'][] = 'videobox_archives';
 $GLOBALS['TL_PERMISSIONS'][] = 'videobox_operations';
 
 // InsertTag Hook
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('VideoBox_Helpers', 'replaceInsertTags');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('VideoBox_Helpers', 'replaceVideoBoxInsertTags');
 
 // Videotypes Array
 $GLOBALS['VIDEOBOX']['VideoType'] = array();

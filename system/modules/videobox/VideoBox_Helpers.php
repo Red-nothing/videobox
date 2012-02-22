@@ -35,7 +35,7 @@
  * @package    Controller
  */
  
-class VideoBox_Helpers extends System
+class VideoBox_Helpers extends Controller
 {
 	/**
 	 * Load database object
@@ -56,7 +56,7 @@ class VideoBox_Helpers extends System
 	 * @param string
 	 * @return mixed
 	 */
-	public function replaceInsertTags($strTag)
+	public function replaceVideoBoxInsertTags($strTag)
 	{
 		// {{VIDEOBOX_NEWS::CONTAINERID}} 
 		if(strpos($strTag, 'VIDEOBOX_NEWS::') !== false)
@@ -184,7 +184,7 @@ class VideoBox_Helpers extends System
      * @param int jumpTo page
      * @return array
      */
-    public static function prepareVideoTemplateData($intVideoId, $intJumpTo=false)
+    public function prepareVideoTemplateData($intVideoId, $intJumpTo=false)
     {
         $arrReturn = array();
         $objVideo = new VideoBoxElement($intVideoId);

@@ -131,10 +131,11 @@ class ModuleVideoBoxList extends Module
         $objVideos = $objVideosStmt->execute();
         $arrVideos = array();
         $count = 0;
+        $this->import('VideoBox_Helpers', 'VBHelper');
         
         while ($objVideos->next())
         {
-            $arrVideoData = VideoBox_Helpers::prepareVideoTemplateData($objVideos->id, $this->videobox_jumpTo);
+            $arrVideoData = $this->VBHelper->prepareVideoTemplateData($objVideos->id, $this->videobox_jumpTo);
             $arrVideos[$objVideos->id] = array_merge($arrVideoData, array
             (
                 'count'    => ++$count,
