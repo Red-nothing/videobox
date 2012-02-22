@@ -128,6 +128,17 @@ class VideoBoxElement extends System
     {
         return $this->arrData;
     }
+    
+    
+    /**
+     * Access the video data
+     * @param string key
+     * @return mixed
+     */
+    public function __get($strKey)
+    {
+        return (isset($this->arrData[$strKey])) ? $this->arrData[$strKey] : null;
+    }
 	
     
 	/**
