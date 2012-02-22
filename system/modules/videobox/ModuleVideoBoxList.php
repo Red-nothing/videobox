@@ -118,12 +118,9 @@ class ModuleVideoBoxList extends Module
             $objPagination = new Pagination($intTotal, $this->perPage);
             $this->Template->pagination = $objPagination->generate("\n  ");
         }
-        
-        // jump to page
-        $objJumpTo = $this->Database->prepare('SELECT id,alias FROM tl_page WHERE id=?')->execute($this->videobox_jumpTo);
-        
+
         // videobox statement
-        $objVideosStmt = $this->Database->prepare('SELECT id,alias,videotitle FROM tl_videobox WHERE pid IN (' . implode(',', $arrArchives) . ')' . $strSQL);
+        $objVideosStmt = $this->Database->prepare('SELECT id FROM tl_videobox WHERE pid IN (' . implode(',', $arrArchives) . ')' . $strSQL);
 
         // Limit the result
         if (isset($limit))
@@ -137,14 +134,13 @@ class ModuleVideoBoxList extends Module
         
         while ($objVideos->next())
         {
-            $objVideo = new VideoBoxElement($objVideos->id);
-            $arrVideos[$objVideos->id]['video'] = $objVideo->generate();
-            $arrVideos[$objVideos->id]['videoData'] = $objVideo->getData();
-            $arrVideos[$objVideos->id]['count'] = ++$count;
-            $arrVideos[$objVideos->id]['cssClass'] = (($count == 1) ? ' first' : '') . (($count == $limit) ? ' last' : '') . ((($count % 2) == 0) ? ' odd' : ' even');
-            $arrVideos[$objVideos->id]['title'] = $objVideos->title;
-            $arrVideos[$objVideos->id]['href']  = ampersand($this->generateFrontendUrl($objJumpTo->row(), '/video/' . ((!$GLOBALS['TL_CONFIG']['disableAlias'] && $objVideos->alias != '') ? $objVideos->alias : $objVideos->id)));
-            
+            $arrVideoData = VideoBox_Helpers::prepareVideoTemplateData($objVideos->id, $this->videobox_jumpTo);
+            $arrVideos[$objVideos->id] = array_merge($arrVideoData, array
+            (
+                'count'    => ++$count,
+                'cssClass' => (($count == 1) ? ' first' : '') . (($count == $limit) ? ' last' : '') . ((($count % 2) == 0) ? ' odd' : ' even')
+                
+            ));
         }
         
         $this->Template->videos = $arrVideos;

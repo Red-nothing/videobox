@@ -34,6 +34,7 @@ $GLOBALS['TL_LANG']['tl_videobox']['alias'] = array('Video alias', 'Please give 
 $GLOBALS['TL_LANG']['tl_videobox']['videotype'] = array('Videotype', 'Please choose the type of video you want to specify.');
 $GLOBALS['TL_LANG']['tl_videobox']['thumb'] = array('Preview image', 'Choose your preview image from the system.');
 $GLOBALS['TL_LANG']['tl_videobox']['descr'] = array('Description', 'Enter a description for this video.');
+$GLOBALS['TL_LANG']['tl_videobox']['size'] = array('Thumbnail size', 'Choose the thumbnail size.');
 $GLOBALS['TL_LANG']['tl_videobox']['youtube_id'] = array('Youtube-ID', 'Enter the ID of your Youtube video. The ID is the <strong>bold</strong> part: http://www.youtube.com/watch?v=<strong>SGeZYednWtI</strong>');
 
 

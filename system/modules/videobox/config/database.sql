@@ -93,6 +93,7 @@ CREATE TABLE `tl_videobox` (
   `videotitle` varchar(64) NOT NULL default '',
   `alias` varchar(64) NOT NULL default '',
   `thumb` varchar(64) NOT NULL default '',
+  `size` varchar(64) NOT NULL default '',
   `descr` text NULL,
   `videotype` varchar(64) NOT NULL default '',
   `youtube_id` varchar(64) NOT NULL default '',

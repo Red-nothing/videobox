@@ -175,5 +175,43 @@ class VideoBox_Helpers extends System
 		// else redirect to the existing entry 
 		$this->redirect('contao/main.php?do=videobox&table=tl_videobox_settings&act=edit&id=' . $objCheck->id);
 		
-	}	
+	}
+    
+    
+    /**
+     * Prepare video template data
+     * @param int video id
+     * @param int jumpTo page
+     * @return array
+     */
+    public static function prepareVideoTemplateData($intVideoId, $intJumpTo=false)
+    {
+        $arrReturn = array();
+        $objVideo = new VideoBoxElement($intVideoId);
+        $arrReturn['video'] = $objVideo->generate();
+        $arrReturn['videoData'] = $objVideo->getData();
+        $arrReturn['title'] = $objVideo->videotitle;
+        
+        if ($intJumpTo)
+        {
+            // jumpTo gets cached automatically
+            $objJumpTo = $this->Database->prepare('SELECT id,alias FROM tl_page WHERE id=?')->execute($intJumpTo);
+            $arrReturn['href']  = ampersand($this->generateFrontendUrl($objJumpTo->row(), '/video/' . ((!$GLOBALS['TL_CONFIG']['disableAlias'] && $objVideo->alias != '') ? $objVideo->alias : $objVideo->id)));
+        }
+
+        // thumb
+        if ($objVideo->thumb)
+        {
+            $objImgData = new stdClass();
+            $arrItem = array_merge($arrReturn['videoData'], array
+            (
+                'singleSRC' => $objVideo->thumb
+            ));
+            
+            $this->addImageToTemplate($objImgData, $arrItem);
+            $arrReturn['imgData'] = $objImgData;
+        }
+        
+        return $arrReturn;
+    }
 }

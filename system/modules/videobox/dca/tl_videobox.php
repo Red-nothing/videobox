@@ -144,6 +144,15 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
             'inputType'               => 'fileTree',
             'eval'                    => array('fieldType'=>'radio', 'filesOnly'=>true, 'files'=>true, 'extensions'=>'jpg,jpeg,png,gif')
         ),
+        'size' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['size'],
+            'exclude'                 => true,
+            'inputType'               => 'imageSize',
+            'options'                 => $GLOBALS['TL_CROP'],
+            'reference'               => &$GLOBALS['TL_LANG']['MSC'],
+            'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true)
+        ),
         'descr' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_videobox']['descr'],
