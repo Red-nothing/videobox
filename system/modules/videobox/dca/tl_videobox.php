@@ -47,7 +47,7 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 		'sorting' => array
 		(
 			'mode'                    => 4,
-			'fields'                  => array('videotitle'),
+			'fields'                  => array('sorting'),
 			'headerFields'            => array('title', 'activeVideoTypes', 'allowedUserGroups'),
 			'panelLayout'             => 'filter;search,limit',
 			'child_record_callback'   => array('tl_videobox', 'compileVideos')
@@ -103,7 +103,7 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
 	(
 		'__selector__'                => array('videotype'),
 		'default'                     => '{title_legend},videotitle,alias,videotype;',
-		'youtube'					  => '{title_legend},videotitle,alias,videotype;{youtube_legend},thumb,descr,youtube_id;'
+		'youtube'					  => '{title_legend},videotitle,alias,videotype;{youtube_legend},thumb,size,descr,youtube_id;'
 	),
 	
 	// Fields
@@ -151,7 +151,7 @@ $GLOBALS['TL_DCA']['tl_videobox'] = array
             'inputType'               => 'imageSize',
             'options'                 => $GLOBALS['TL_CROP'],
             'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-            'eval'                    => array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true)
+            'eval'                    => array('rgxp'=>'digit', 'nospace'=>true)
         ),
         'descr' => array
         (
