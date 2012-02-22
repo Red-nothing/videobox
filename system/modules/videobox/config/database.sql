@@ -147,5 +147,7 @@ CREATE TABLE `tl_calendar_events` (
 CREATE TABLE `tl_module` (
   `videobox_archives` blob NULL,
   `videobox_jumpTo` int(10) unsigned NOT NULL default '0',
-  `videobox_sql` varchar(255) NOT NULL default ''
+  `videobox_sql` varchar(255) NOT NULL default '',
+  `videobox_tpl_list` varchar(255) NOT NULL default 'mod_videobox_list',
+  `videobox_tpl_reader` varchar(255) NOT NULL default 'mod_videobox_reader'
 ) ENGINE=MyISAM  CHARSET=utf8;
