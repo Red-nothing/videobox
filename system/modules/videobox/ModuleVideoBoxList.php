@@ -63,6 +63,12 @@ class ModuleVideoBoxList extends Module
 
 			return $objTemplate->parse();
 		}
+        
+        // overwrite the module template
+        if ($this->videobox_tpl_list)
+        {
+            $this->Template = new FrontendTemplate($this->videobox_tpl_list);
+        }
 
 		return parent::generate();
 	}

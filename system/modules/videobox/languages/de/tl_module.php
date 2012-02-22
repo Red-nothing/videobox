@@ -30,6 +30,8 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_module']['videobox_archives'] = array('Videobox-Archive', 'Bitte wählen Sie ein oder mehrere Videobox-Archive aus.');
-$GLOBALS['TL_LANG']['tl_module']['videobox_jumpTo'] = array('Videobox Leser-Seite', 'Wählen Sie hier die Seite aus, auf der sich der Videobox-Leser befindet.');
-$GLOBALS['TL_LANG']['tl_module']['videobox_sql'] = array('Videobox SQL', 'Hier können Sie individuelle SQL-Anweisungen ergänzen. Stellen Sie sicher, dass das Query korrekt gebildet wird. (z.B. " AND published=1 ORDER BY tstamp"');
+$GLOBALS['TL_LANG']['tl_module']['videobox_archives']   = array('Videobox-Archive', 'Bitte wählen Sie ein oder mehrere Videobox-Archive aus.');
+$GLOBALS['TL_LANG']['tl_module']['videobox_jumpTo']     = array('Videobox Leser-Seite', 'Wählen Sie hier die Seite aus, auf der sich der Videobox-Leser befindet.');
+$GLOBALS['TL_LANG']['tl_module']['videobox_sql']        = array('Videobox SQL', 'Hier können Sie individuelle SQL-Anweisungen ergänzen. Stellen Sie sicher, dass das Query korrekt gebildet wird. (z.B. " AND published=1 ORDER BY tstamp"');
+$GLOBALS['TL_LANG']['tl_module']['videobox_tpl_list']   = array('Template Liste', 'Wählen Sie hier ein Template aus.');
+$GLOBALS['TL_LANG']['tl_module']['videobox_tpl_reader'] = array('Template Leser', 'Wählen Sie hier ein Template aus.');

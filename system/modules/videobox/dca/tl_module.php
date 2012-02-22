@@ -57,3 +57,50 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['videobox_sql'] = array
 	'inputType'               => 'text',
 	'eval'                    => array('tl_class'=>'w50')
 );
+$GLOBALS['TL_DCA']['tl_module']['fields']['videobox_tpl_list'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['videobox_tpl_list'],
+	'exclude'                 => true,
+    'inputType'               => 'select',
+    'options_callback'        => array('tl_module_videobox', 'getVideoBoxTemplates'),
+	'eval'                    => array('tl_class'=>'w50')
+);
+$GLOBALS['TL_DCA']['tl_module']['fields']['videobox_tpl_reader'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['videobox_tpl_reader'],
+	'exclude'                 => true,
+    'inputType'               => 'select',
+    'options_callback'        => array('tl_module_videobox', 'getVideoBoxTemplates'),
+	'eval'                    => array('tl_class'=>'w50')
+);
+
+
+class tl_module_videobox extends Backend
+{
+    
+    /**
+     * Initialize the object
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
+    
+    /**
+     * Return all videobox templates as array
+     * @param DataContainer
+     * @return array
+     */
+    public function getVideoBoxTemplates(DataContainer $dc)
+    {
+        $intPid = $dc->activeRecord->pid;
+
+        if ($this->Input->get('act') == 'overrideAll')
+        {
+            $intPid = $this->Input->get('id');
+        }
+
+        return $this->getTemplateGroup('mod_videobox_', $intPid);
+    }
+}

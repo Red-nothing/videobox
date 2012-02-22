@@ -68,6 +68,12 @@ class ModuleVideoBoxReader extends Module
         {
             return '';
         }
+        
+        // overwrite the module template
+        if ($this->videobox_tpl_reader)
+        {
+            $this->Template = new FrontendTemplate($this->videobox_tpl_reader);
+        }
 
 		return parent::generate();
 	}
