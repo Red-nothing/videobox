@@ -30,7 +30,7 @@
  * Table tl_module 
  */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['videobox_list']			= '{title_legend},name,headline,type;{config_legend},videobox_archives,videobox_jumpTo,videobox_sql,perPage;{template_legend},videobox_tpl_list;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['videobox_reader']		    = '{title_legend},name,headline,type;{template_legend},videobox_tpl_list;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['videobox_reader']		    = '{title_legend},name,headline,type;{template_legend},videobox_tpl_reader;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 /**
  * Fields

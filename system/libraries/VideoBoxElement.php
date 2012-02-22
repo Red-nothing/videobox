@@ -67,7 +67,7 @@ class VideoBoxElement extends System
      * @param string 
      */
     public function __construct($varId, $strTable='tl_videobox', $strVideoType='')
-    {	
+    {
 		// set vars
 		$this->strTable = $strTable;
 		$this->strVideoType = $strVideoType;
@@ -156,6 +156,5 @@ class VideoBoxElement extends System
         
         // other than that, there's no videobox hook for this type!
         throw new Exception('There is no valid video type hook for the video type "' . $this->strVideoType . '"!');
-		return $this->objVideo;
 	}
 }
