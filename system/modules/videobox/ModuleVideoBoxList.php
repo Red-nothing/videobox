@@ -67,7 +67,7 @@ class ModuleVideoBoxList extends Module
         // overwrite the module template
         if ($this->videobox_tpl_list)
         {
-            $this->Template = new FrontendTemplate($this->videobox_tpl_list);
+            $this->strTemplate = $this->videobox_tpl_list;
         }
 
 		return parent::generate();
