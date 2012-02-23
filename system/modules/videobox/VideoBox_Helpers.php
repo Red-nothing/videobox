@@ -196,7 +196,7 @@ class VideoBox_Helpers extends Controller
         {
             // jumpTo gets cached automatically
             $objJumpTo = $this->Database->prepare('SELECT id,alias FROM tl_page WHERE id=?')->execute($intJumpTo);
-            $arrReturn['href']  = ampersand($this->generateFrontendUrl($objJumpTo->row(), '/video/' . ((!$GLOBALS['TL_CONFIG']['disableAlias'] && $objVideo->alias != '') ? $objVideo->alias : $objVideo->id)));
+            $arrReturn['href']  = ampersand($this->generateFrontendUrl($objJumpTo->row(), '/video/' . ((!$GLOBALS['TL_CONFIG']['disableAlias'] && $objVideo->alias != '') ? $objVideo->alias : $objVideo->videoid)));
         }
 
         // thumb
