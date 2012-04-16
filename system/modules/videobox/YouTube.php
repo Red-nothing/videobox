@@ -106,18 +106,6 @@ class YouTube extends Frontend
 		if ($arrDBData['youtube_loop'])
 			$arrUrlData['loop'] = 1;
 
-		// border
-		if ($arrDBData['youtube_border'])
-			$arrUrlData['border'] = 1;
-
-		// color1
-		if ($arrDBData['youtube_color1'])
-			$arrUrlData['color1'] = '0x' . $arrDBData['youtube_color1'];
-		
-		// color2
-		if ($arrDBData['youtube_color2'])
-			$arrUrlData['color2'] = '0x' . $arrDBData['youtube_color2'];
-
 		// start
 		if ($arrDBData['youtube_start'])
 			$arrUrlData['start'] = '0x' . $arrDBData['youtube_start'];
@@ -126,16 +114,15 @@ class YouTube extends Frontend
 		if ($arrDBData['youtube_fs'])
 			$arrUrlData['fs'] = 1;
 
-		// hd
-		if ($arrDBData['youtube_hd'])
-			$arrUrlData['hd'] = 1;
-
 		// showinfo
 		if ($arrDBData['youtube_showinfo'])
-			$arrUrlData['showinfo'] = 1;	
-		
-		
-		$this->arrData['urlParams']		= $arrUrlData;
+			$arrUrlData['showinfo'] = 1;
+
+        // theme
+        if ($arrDBData['youtube_theme'])
+            $arrUrlData['theme'] = $arrDBData['youtube_theme'];
+
+        $this->arrData['urlParams']		= $arrUrlData;
 		$this->arrData['youtubelink']	= 'http://www.youtube.com/embed/' . $arrDBData['youtube_id'] . self::generateQueryString($arrUrlData);
 
 		// usability

@@ -43,12 +43,9 @@ CREATE TABLE `tl_videobox_settings` (
   `youtube_rel` char(1) NOT NULL default '',
   `youtube_autoplay` char(1) NOT NULL default '',
   `youtube_loop` char(1) NOT NULL default '',
-  `youtube_border` char(1) NOT NULL default '',
-  `youtube_color1` varchar(6) NOT NULL default '',
-  `youtube_color2` varchar(6) NOT NULL default '',
   `youtube_start` int(10) unsigned NOT NULL default '0',
   `youtube_fs` char(1) NOT NULL default '',
-  `youtube_hd` char(1) NOT NULL default '',
+  `youtube_theme` varchar(5) NOT NULL default '',
   `youtube_showinfo` char(1) NOT NULL default '',
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`)

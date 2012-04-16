@@ -99,7 +99,7 @@ $GLOBALS['TL_DCA']['tl_videobox_settings'] = array
 	// Palettes
 	'palettes' => array
 	(
-		'default'                     => '{youtube_legend},youtube_template,youtube_size,youtube_rel,youtube_autoplay,youtube_loop,youtube_border,youtube_color1,youtube_color2,youtube_start,youtube_fs,youtube_hd,youtube_showinfo;'
+		'default'                     => '{youtube_legend},youtube_template,youtube_size,youtube_theme,youtube_rel,youtube_autoplay,youtube_loop,youtube_start,youtube_fs,youtube_showinfo;'
 	),
 
 	// Fields
@@ -128,7 +128,7 @@ $GLOBALS['TL_DCA']['tl_videobox_settings'] = array
  			'default'                 => true,
 			'exclude'				  => true,
 			'inputType'               => 'checkbox',
-			'eval'					  => array('tl_class'=>'w50 cbx')
+			'eval'					  => array('tl_class'=>'w50 cbx m12')
 		),
 		'youtube_autoplay' => array
 		(
@@ -146,30 +146,6 @@ $GLOBALS['TL_DCA']['tl_videobox_settings'] = array
 			'inputType'               => 'checkbox',
 			'eval'					  => array('tl_class'=>'w50 cbx')
 		),
-		'youtube_border' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_border'],
- 			'default'                 => false,
-			'exclude'				  => true,
-			'inputType'               => 'checkbox',
-			'eval'					  => array('tl_class'=>'w50 cbx')
-		),
-		'youtube_color1' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_color1'],
- 			'default'                 => '000000',
-			'exclude'				  => true,
-			'inputType'               => 'text',
-			'eval'					  => array('maxlength' => 6,'tl_class'=>'w50')
-		),
-		'youtube_color2' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_color2'],
- 			'default'                 => 'FFFFFF',
-			'exclude'				  => true,
-			'inputType'               => 'text',
-			'eval'					  => array('maxlength' => 6,'tl_class'=>'w50')
-		),
 		'youtube_start' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_start'],
@@ -186,14 +162,6 @@ $GLOBALS['TL_DCA']['tl_videobox_settings'] = array
 			'inputType'               => 'checkbox',
 			'eval'					  => array('tl_class'=>'w50 cbx m12')
 		),
-		'youtube_hd' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_hd'],
- 			'default'                 => false,
-			'exclude'				  => true,
-			'inputType'               => 'checkbox',
-			'eval'					  => array('tl_class'=>'w50 cbx')
-		),
 		'youtube_showinfo' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_showinfo'],
@@ -201,7 +169,16 @@ $GLOBALS['TL_DCA']['tl_videobox_settings'] = array
 			'exclude'				  => true,
 			'inputType'               => 'checkbox',
 			'eval'					  => array('tl_class'=>'w50 cbx')
-		)
+		),
+        'youtube_theme' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_videobox_settings']['youtube_theme'],
+            'default'                 => 'dark',
+            'exclude'                 => true,
+            'inputType'               => 'select',
+            'options'                 => array('dark', 'light'),
+            'eval'					  => array('tl_class'=>'w50')
+        )
 	)
 );
 
